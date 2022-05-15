@@ -1,14 +1,6 @@
 const mongoose = require('mongoose');
 const bookingSchema = new  mongoose.Schema({
-    name:   {
-        type: String,
-        required:true
-    },
-    status:{
-        type: String,
-        required:true,
-        default:"requested"
-    },
+
     vehicleid: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'vehicle',
@@ -19,11 +11,31 @@ const bookingSchema = new  mongoose.Schema({
 		ref: 'user',
 		required: true
 	},
+    car_owner_id:{
+        type: mongoose.Schema.Types.ObjectId,
+		ref: 'user',
+		required: true
+    },
     packageid: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'packages',
 		required: true
 	},
+    status:{
+        type: String,
+        required:true,
+        default:"requested"
+    },
+    payment:{
+        type: String,
+        required:true,
+        default:"paid"
+    },
+    date:{
+        type: String,
+        required:true,
+        default:"paid"
+    }
 
 });
 

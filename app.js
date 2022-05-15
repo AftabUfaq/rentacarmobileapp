@@ -9,6 +9,7 @@ var AuthRoute = require('./src/routes/AuthRoute');
 var usersRouter = require('./src/routes/UserRoute');
 var vechileRouter = require('./src/routes/VechileRoute');
 var packageRouter = require('./src/routes/PackageRoute');
+var bookingRouter = require('./src/routes/BookingRoute');
 var app = express();
 
 
@@ -22,7 +23,8 @@ app.use('/users', usersRouter);
 app.use('/vechiles', vechileRouter);
 app.use('/packages', packageRouter);
 app.use('/login', AuthRoute);
-// Connecting Database
+app.use('/bookings', bookingRouter);
+// Connecting Database bookingRouter
 connectDB();
 
 // catch 404 and forward to error handler
