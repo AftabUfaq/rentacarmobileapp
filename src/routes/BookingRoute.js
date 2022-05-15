@@ -31,6 +31,25 @@ router.get('/:id', async (req, res, next) => {
 });
 
 
+router.get('/carownerbookings/:id', async (req, res, next) => {
+  try{
+    let booking  = await Booking.find({car_owner_id:req.params.id});
+    res.status(200).send({status:true,data: booking})
+  }catch(err){
+    res.status(200).json({status:false,error: err.message });
+  }
+});
+
+router.get('/customerbookings/:id', async (req, res, next) => {
+  try{
+    let booking  = await Booking.find({userid:req.params.id});
+    res.status(200).send({status:true,data: booking})
+  }catch(err){
+    res.status(200).json({status:false,error: err.message });
+  }
+});
+
+
 // get All Bookings
 router.get('/', async (req, res, next) => {
   try{
